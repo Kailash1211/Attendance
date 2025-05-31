@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Records</title>
+</head>
+<body>
+    <h1>Attendance Records</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Date</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</
