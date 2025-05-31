@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Face Recognition Attendance</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h1 class="mb-4 text-center">Upload Image for Attendance</h1>
+    <form method="POST" enctype="multipart/form-data" class="mb-4">
+      <div class="mb-3">
+        <input type="file" name="image" accept="image/*" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Upload & Mark Attendance</button>
+    </form>
+
+    {% if names %}
+      <div class="alert alert-success">
+        Attendance marked for: <strong>{{ ', '.join(names) }}</strong>
+      </div>
+      <div class="mb-3">
+        <h5>Marked Image:</h5>
+        <img src="{{ url_for('serve_image', filename=marked_img) }}" class="img-fluid rounded border" style="max-height: 400px;">
+      </div>
+      <a href="{{ url_for('serve_image', filename=excel_file) }}" class="btn btn-success">Download Excel Sheet</a>
+    {% endif %}
+  </div>
+</body>
+</html>
